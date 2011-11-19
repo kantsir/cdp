@@ -6,7 +6,7 @@ public interface GenericDao<T> {
 
     public T getById(Long id);
 
-    public Collection<T> getAll(Class<T> model);
+    public Collection<T> getAll();
 
     public void save(T object);
 

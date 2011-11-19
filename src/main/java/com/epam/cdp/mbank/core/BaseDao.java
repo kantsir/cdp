@@ -14,7 +14,7 @@ public abstract class BaseDao<T> implements GenericDao<T> {
 	    .createEntityManager();
     private EntityTransaction transaction = entityManager.getTransaction();
 
-    abstract String getSelectAllQuery();
+    public abstract String getSelectAllQuery();
 
     public BaseDao(Class<T> model) {
 	this.model = model;
@@ -23,7 +23,7 @@ public abstract class BaseDao<T> implements GenericDao<T> {
     public T getById(Long id) {
 	T result = null;
 	transaction.begin();
-	result = (T) entityManager.find(model, id);
+	result = entityManager.find(model, id);
 	transaction.commit();
 	return result;
     }
