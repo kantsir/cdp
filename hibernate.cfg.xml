@@ -10,7 +10,8 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/mbank</property>
 		<property name="hibernate.dialect">	org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="current_session_context_class">thread</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
 
 		<mapping class="com.epam.cdp.mbank.model.Account" />
 		<mapping class="com.epam.cdp.mbank.model.Activity" />

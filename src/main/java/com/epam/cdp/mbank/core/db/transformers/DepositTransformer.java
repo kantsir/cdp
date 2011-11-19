@@ -13,7 +13,7 @@ public class DepositTransformer extends BaseTransformer<Deposit> {
 	public Deposit transformTo(ResultSet resultSet) {
 		Deposit deposit = new Deposit();
 		try {
-			deposit.setDeposit_id(resultSet.getLong(1));
+			deposit.setId(resultSet.getLong(1));
 			//TODO write result set
 			
 		} catch (SQLException e) {

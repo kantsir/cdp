@@ -1,46 +1,61 @@
 package com.epam.cdp.mbank.model;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.epam.cdp.mbank.model.enums.DepositType;
 
-public class Deposit {
-	private Long deposit_id;
-	private String client_id;
+@Entity
+@Table(name = "DEPOSITES")
+public class Deposit implements Serializable{
+
+	private static final long serialVersionUID = 3197140410428783216L;
+
+	@Id
+	@Column(name = "DEPOSIT_ID")
+	private Long id;
+
+	@Column(name = "CLIENT_ID")
+	private String clientId;
+
+	@Column(name = "BALANCE")
 	private Double balance;
+
+	@Column(name = "TYPE")
+	@Enumerated(EnumType.STRING)
 	private DepositType type;
-	private Date opening_date;
-	private Date closing_date;
+
+	@Column(name = "OPENING_DATE")
+	private Date openingDate;
+
+	@Column(name = "CLOSING_DATE")
+	private Date closingDate;
 
 	public Deposit() {
-		super();
+
 	}
 
-	public Deposit(Long deposit_id, String client_id, Double balance,
-			DepositType type, Date opening_date, Date closing_date) {
-		super();
-		this.deposit_id = deposit_id;
-		this.client_id = client_id;
-		this.balance = balance;
-		this.type = type;
-		this.opening_date = opening_date;
-		this.closing_date = closing_date;
+	public Long getId() {
+		return id;
 	}
 
-	public Long getDeposit_id() {
-		return deposit_id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public void setDeposit_id(Long deposit_id) {
-		this.deposit_id = deposit_id;
+	public String getClientId() {
+		return clientId;
 	}
 
-	public String getClient_id() {
-		return client_id;
-	}
-
-	public void setClient_id(String client_id) {
-		this.client_id = client_id;
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
 	}
 
 	public Double getBalance() {
@@ -59,20 +74,20 @@ public class Deposit {
 		this.type = type;
 	}
 
-	public Date getOpening_date() {
-		return opening_date;
+	public Date getOpeningDate() {
+		return openingDate;
 	}
 
-	public void setOpening_date(Date opening_date) {
-		this.opening_date = opening_date;
+	public void setOpeningDate(Date openingDate) {
+		this.openingDate = openingDate;
 	}
 
-	public Date getClosing_date() {
-		return closing_date;
+	public Date getClosingDate() {
+		return closingDate;
 	}
 
-	public void setClosing_date(Date closing_date) {
-		this.closing_date = closing_date;
+	public void setClosingDate(Date closingDate) {
+		this.closingDate = closingDate;
 	}
 
 }

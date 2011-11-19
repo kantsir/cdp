@@ -6,16 +6,15 @@ import java.sql.SQLException;
 import com.epam.cdp.mbank.core.BaseTransformer;
 import com.epam.cdp.mbank.model.Account;
 
-
 public class AccountTransformer extends BaseTransformer<Account> {
 
 	@Override
 	public Account transformTo(ResultSet resultSet) {
 		Account account = new Account();
 		try {
-			account.setAccount_id(resultSet.getLong(1));
-			//TODO write result set
-			
+			account.setId(resultSet.getLong(1));
+			// TODO write result set
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -12,7 +12,7 @@ public class PropertyTransformer extends BaseTransformer<Property> {
 	public Property transformTo(ResultSet resultSet) {
 		Property property = new Property();
 		try {
-			property.setProp_key(resultSet.getString(1));
+			property.setPropertyKey(resultSet.getString(1));
 			// TODO write result set
 
 		} catch (SQLException e) {

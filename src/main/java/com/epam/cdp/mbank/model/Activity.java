@@ -2,28 +2,39 @@ package com.epam.cdp.mbank.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ACTIVITIES")
 public class Activity {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
 	private Long id;
-	private Long client_id;
+
+	@Column(name = "CLIENT_ID")
+	private Long clientId;
+
+	@Column(name = "AMOUNT")
 	private Double amount;
-	private Date activity_date;
+
+	@Column(name = "ACTIVITY_DATE")
+	private Date activityDate;
+
+	@Column(name = "COMMISION")
 	private Double commision;
+
+	@Lob
+	@Column(name = "DESCRIPTION")
 	private String description;
 
 	public Activity() {
-		super();
-	}
-
-	public Activity(Long id, Long client_id, Double amount, Date activity_date,
-			Double commision, String description) {
-		super();
-		this.id = id;
-		this.client_id = client_id;
-		this.amount = amount;
-		this.activity_date = activity_date;
-		this.commision = commision;
-		this.description = description;
 	}
 
 	public Long getId() {
@@ -34,12 +45,12 @@ public class Activity {
 		this.id = id;
 	}
 
-	public Long getClient_id() {
-		return client_id;
+	public Long getClientId() {
+		return clientId;
 	}
 
-	public void setClient_id(Long client_id) {
-		this.client_id = client_id;
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
 	}
 
 	public Double getAmount() {
@@ -50,12 +61,12 @@ public class Activity {
 		this.amount = amount;
 	}
 
-	public Date getActivity_date() {
-		return activity_date;
+	public Date getActivityDate() {
+		return activityDate;
 	}
 
-	public void setActivity_date(Date activity_date) {
-		this.activity_date = activity_date;
+	public void setActivityDate(Date activityDate) {
+		this.activityDate = activityDate;
 	}
 
 	public Double getCommision() {
