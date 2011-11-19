@@ -1,18 +1,17 @@
 package com.epam.cdp.mbank.core;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface GenericDao<T> {
 
-	T getById(int id);
+    public T getById(Long id);
 
-	List<T> getAll();
+    public Collection<T> getAll(Class<T> model);
 
-	boolean delete(int id);
+    public void save(T object);
 
-	void insert(T obj);
+    public void saveAll(Collection<T> objects);
 
-	void update(int id, T obj);
-
-	int getCount();
+    public void remove(T object);
+    
 }

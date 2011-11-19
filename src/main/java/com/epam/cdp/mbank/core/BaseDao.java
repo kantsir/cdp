@@ -1,59 +1,61 @@
 package com.epam.cdp.mbank.core;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import com.epam.cdp.mbank.model.Account;
-
 public abstract class BaseDao<T> implements GenericDao<T> {
 
-	private BaseTransformer<T> transformer = null;
-	private Class<?> model;
-	private EntityManager entityManager = EntityManagerHelper.getEjb3Configuration().buildEntityManagerFactory().createEntityManager();
+    private Class<T> model;
+    private EntityManager entityManager = EntityManagerHelper
+	    .getEjb3Configuration().buildEntityManagerFactory()
+	    .createEntityManager();
+    private EntityTransaction transaction = entityManager.getTransaction();
 
-	public BaseDao(BaseTransformer<T> transformer,Class<?> model) {
-		this.setTransformer(transformer);
-		this.model=model;
+    abstract String getSelectAllQuery();
+
+    public BaseDao(Class<T> model) {
+	this.model = model;
+    }
+
+    public T getById(Long id) {
+	T result = null;
+	transaction.begin();
+	result = (T) entityManager.find(model, id);
+	transaction.commit();
+	return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Collection<T> getAll() {
+	Collection<T> result = null;
+	transaction.begin();
+	String selectAllQuery = getSelectAllQuery();
+	Query query = entityManager.createQuery(selectAllQuery);
+	result = query.getResultList();
+	transaction.commit();
+	return result;
+    }
+
+    public void save(T object) {
+	transaction.begin();
+	entityManager.persist(object);
+	transaction.commit();
+    }
+
+    public void saveAll(Collection<T> objects) {
+	transaction.begin();
+	for (T object : objects) {
+	    entityManager.persist(object);
 	}
+	transaction.commit();
+    }
 
-	public T getById(int id) {
-	  return null;
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<T> getAll() {
-		List<T> result = null;
-
-		EntityTransaction tx = entityManager.getTransaction();
-		   tx.begin();
-		   String selectQuery = new StringBuilder("select * from ").append(model.getName()).toString();
-		   Query query = entityManager.createQuery(selectQuery);
-		   result = query.getResultList();
-    	return result;
-	}
-
-	public boolean delete(int id) {
-		boolean result = false;
-		return result;
-	}
-
-	public int getCount() {
-		int result = 0;
-		return result;
-	}
-
-	public void update(int id, T obj) {
-
-	}
-
-	public BaseTransformer<T> getTransformer() {
-		return transformer;
-	}
-
-	public void setTransformer(BaseTransformer<T> transformer) {
-		this.transformer = transformer;
-	}
+    public void remove(T object) {
+	transaction.begin();
+	entityManager.remove(object);
+	transaction.commit();
+    }
 }
