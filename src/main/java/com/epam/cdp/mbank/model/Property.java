@@ -2,37 +2,38 @@ package com.epam.cdp.mbank.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "PROPERTIES")
+@Table(name = "PROPERTIES")
 public class Property {
 
-	@Column(name ="PROP_KEY")
-	private String propertyKey;
-	
-	@Column(name ="PROP_VALUE")
-	private String propertyValue;
+    @Id
+    @Column(name = "PROP_KEY", nullable=false, unique=true)
+    private String propertyKey;
 
-	public Property() {
-		super();
-	}
+    @Column(name = "PROP_VALUE")
+    private String propertyValue;
 
-	public String getPropertyKey() {
-		return propertyKey;
-	}
+    public Property() {
+	super();
+    }
 
-	public void setPropertyKey(String propertyKey) {
-		this.propertyKey = propertyKey;
-	}
+    public String getPropertyKey() {
+	return propertyKey;
+    }
 
-	public String getPropertyValue() {
-		return propertyValue;
-	}
+    public void setPropertyKey(String propertyKey) {
+	this.propertyKey = propertyKey;
+    }
 
-	public void setPropertyValue(String propertyValue) {
-		this.propertyValue = propertyValue;
-	}
+    public String getPropertyValue() {
+	return propertyValue;
+    }
 
-	
+    public void setPropertyValue(String propertyValue) {
+	this.propertyValue = propertyValue;
+    }
+
 }

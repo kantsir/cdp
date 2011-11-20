@@ -1,88 +1,90 @@
 package com.epam.cdp.mbank.model;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACTIVITIES")
-public class Activity {
+public class Activity implements Serializable {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
-	private Long id;
+    private static final long serialVersionUID = -7945665348252323705L;
 
-	@Column(name = "CLIENT_ID")
-	private Long clientId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long id;
 
-	@Column(name = "AMOUNT")
-	private Double amount;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
 
-	@Column(name = "ACTIVITY_DATE")
-	private Date activityDate;
+    @Column(name = "AMOUNT")
+    private Double amount;
 
-	@Column(name = "COMMISION")
-	private Double commision;
+    @Column(name = "ACTIVITY_DATE")
+    private Calendar activityDate;
 
-	@Lob
-	@Column(name = "DESCRIPTION")
-	private String description;
+    @Column(name = "COMMISION")
+    private Double commision;
 
-	public Activity() {
-	}
+    @Column(name = "DESCRIPTION")
+    private String description;
 
-	public Long getId() {
-		return id;
-	}
+    public Activity() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public Long getClientId() {
-		return clientId;
-	}
+    public Double getAmount() {
+	return amount;
+    }
 
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
-	}
+    public void setAmount(Double amount) {
+	this.amount = amount;
+    }
 
-	public Double getAmount() {
-		return amount;
-	}
+    public String getDescription() {
+	return description;
+    }
 
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
+    public void setDescription(String description) {
+	this.description = description;
+    }
 
-	public Date getActivityDate() {
-		return activityDate;
-	}
+    public Client getClient() {
+	return client;
+    }
 
-	public void setActivityDate(Date activityDate) {
-		this.activityDate = activityDate;
-	}
+    public void setClient(Client client) {
+	this.client = client;
+    }
 
-	public Double getCommision() {
-		return commision;
-	}
+    public Calendar getActivityDate() {
+	return activityDate;
+    }
 
-	public void setCommision(Double commision) {
-		this.commision = commision;
-	}
+    public void setActivityDate(Calendar activityDate) {
+	this.activityDate = activityDate;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public Double getCommision() {
+	return commision;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setCommision(Double commision) {
+	this.commision = commision;
+    }
 
 }

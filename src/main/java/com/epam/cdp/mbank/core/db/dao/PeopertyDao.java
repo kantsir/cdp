@@ -5,8 +5,9 @@ import com.epam.cdp.mbank.model.Property;
 
 public class PeopertyDao extends BaseDao<Property> {
 
-    public PeopertyDao(Class<Property> model) {
-	super(model);
+    @Override
+    public Class<Property> getObjectClass() {
+	return Property.class;
     }
 
     @Override
@@ -14,5 +15,6 @@ public class PeopertyDao extends BaseDao<Property> {
 	String result = "SELECT * FROM PROPERTIES";
 	return result;
     }
+
 
 }

@@ -2,77 +2,84 @@ package com.epam.cdp.mbank.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNTS")
 public class Account implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ACCOUNT_ID")
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ACCOUNT_ID")
+    private Long id;
 
-	@Column(name = "CLIENT_ID")
-	private Long clientId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
 
-	@Column(name = "BALANCE")
-	private Double balance;
+    @Column(name = "BALANCE")
+    private Double balance;
 
-	@Column(name = "CREDIT_LIMIN")
-	private Double creditLimit;
+    @Column(name = "CREDIT_LIMIT")
+    private Double creditLimit;
 
-	@Lob
-	@Column(name = "COMMENT")
-	private String comment;
+    @Column(name = "COMMENT")
+    private String comment;
 
-	public Account() {
-	}
+    public Account() {
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Double getBalance() {
+	return balance;
+    }
 
-	public Long getClientId() {
-		return clientId;
-	}
+    public void setBalance(Double balance) {
+	this.balance = balance;
+    }
 
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
-	}
+    public Double getCreditLimit() {
+	return creditLimit;
+    }
 
-	public Double getBalance() {
-		return balance;
-	}
+    public void setCreditLimit(Double creditLimit) {
+	this.creditLimit = creditLimit;
+    }
 
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
+    public String getComment() {
+	return comment;
+    }
 
-	public Double getCreditLimit() {
-		return creditLimit;
-	}
+    public void setComment(String comment) {
+	this.comment = comment;
+    }
 
-	public void setCreditLimit(Double creditLimit) {
-		this.creditLimit = creditLimit;
-	}
+    public Client getClient() {
+	return client;
+    }
 
-	public String getComment() {
-		return comment;
-	}
+    public void setClient(Client client) {
+	this.client = client;
+    }
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    // public Long getClientId() {
+    // return clientId;
+    // }
+    //
+    // public void setClientId(Long clientId) {
+    // this.clientId = clientId;
+    // }
 
 }

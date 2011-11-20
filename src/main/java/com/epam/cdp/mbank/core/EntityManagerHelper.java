@@ -1,29 +1,28 @@
 package com.epam.cdp.mbank.core;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.ejb.Ejb3Configuration;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class EntityManagerHelper {
 
-	private static final SessionFactory sessionFactory;
-	private static final Ejb3Configuration ejb3Configuration;
+    private final static String PERSISTENCE_UNIT = "MBANK_PERSISTENCE_UNIT";
 
-	static {
-		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
-			ejb3Configuration = new Ejb3Configuration().configure("/hibernate.cfg.xml");
-		} catch (Throwable ex) {
-			//TODO LOGGER!!!!
-			throw new ExceptionInInitializerError(ex);
-		}
-	}
+    private static EntityManagerFactory entityFactory = Persistence
+	    .createEntityManagerFactory(PERSISTENCE_UNIT);
 
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+    private static EntityManager entityManager = getEntityFactory()
+	    .createEntityManager();
 
-	public static Ejb3Configuration getEjb3Configuration() {
-		return ejb3Configuration;
-	}
+    private EntityManagerHelper() {
+    }
+
+    public static EntityManager getEntityManager() {
+	return entityManager;
+    }
+
+    public static EntityManagerFactory getEntityFactory() {
+	return entityFactory;
+    }
+
 }

@@ -5,8 +5,9 @@ import com.epam.cdp.mbank.model.Activity;
 
 public class ActivityDao extends BaseDao<Activity> {
 
-    public ActivityDao(Class<Activity> model) {
-	super(model);
+    @Override
+    public Class<Activity> getObjectClass() {
+	return Activity.class;
     }
 
     @Override
@@ -14,5 +15,6 @@ public class ActivityDao extends BaseDao<Activity> {
 	String result = "SELECT * FROM ACTIVITIES";
 	return result;
     }
+
 
 }

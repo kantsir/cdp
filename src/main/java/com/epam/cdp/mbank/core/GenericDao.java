@@ -13,5 +13,5 @@ public interface GenericDao<T> {
     public void saveAll(Collection<T> objects);
 
     public void remove(T object);
-    
+
 }

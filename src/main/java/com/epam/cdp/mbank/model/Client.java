@@ -1,13 +1,18 @@
 package com.epam.cdp.mbank.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.epam.cdp.mbank.model.enums.ClientType;
@@ -16,101 +21,132 @@ import com.epam.cdp.mbank.model.enums.ClientType;
 @Table(name = "CLIENTS")
 public class Client implements Serializable {
 
-	private static final long serialVersionUID = 7417311628652888910L;
+    private static final long serialVersionUID = 7417311628652888910L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "CLIENT_ID")
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CLIENT_ID")
+    private Long id;
 
-	@Column(name = "TYPE")
-	@Enumerated(EnumType.STRING)
-	private ClientType type;
+    @Column(name = "TYPE")
+    @Enumerated(EnumType.STRING)
+    private ClientType type;
 
-	@Column(name = "CLIENT_NAME")
-	private String client_name;
+    @Column(name = "CLIENT_NAME", nullable = false, unique = true)
+    private String client_name;
 
-	@Column(name = "PASSWORD")
-	private String password;
+    @Column(name = "PASSWORD", nullable = false)
+    private String password;
 
-	@Column(name = "ADRESS")
-	private String address;
+    @Column(name = "ADRESS")
+    private String address;
 
-	@Column(name = "EMAIL")
-	private String email;
+    @Column(name = "EMAIL")
+    private String email;
 
-	@Column(name = "PHONE")
-	private String phone;
+    @Column(name = "PHONE")
+    private String phone;
 
-	@Column(name = "COMMENT")
-	private String comment;
+    @Column(name = "COMMENT")
+    private String comment;
 
-	public Client() {
-	}
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Set<Account> accounts;
 
-	public Long getId() {
-		return id;
-	}
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Set<Deposit> deposites;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Set<Activity> activities;
 
-	public ClientType getType() {
-		return type;
-	}
+    public Client() {
+    }
 
-	public void setType(ClientType type) {
-		this.type = type;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public String getClient_name() {
-		return client_name;
-	}
+    public ClientType getType() {
+	return type;
+    }
 
-	public void setClient_name(String client_name) {
-		this.client_name = client_name;
-	}
+    public void setType(ClientType type) {
+	this.type = type;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getClient_name() {
+	return client_name;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setClient_name(String client_name) {
+	this.client_name = client_name;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getPassword() {
+	return password;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setPassword(String password) {
+	this.password = password;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getAddress() {
+	return address;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setAddress(String address) {
+	this.address = address;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public String getEmail() {
+	return email;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public void setEmail(String email) {
+	this.email = email;
+    }
 
-	public String getComment() {
-		return comment;
-	}
+    public String getPhone() {
+	return phone;
+    }
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	
+    public void setPhone(String phone) {
+	this.phone = phone;
+    }
+
+    public String getComment() {
+	return comment;
+    }
+
+    public void setComment(String comment) {
+	this.comment = comment;
+    }
+
+    public Set<Activity> getActivities() {
+	return activities;
+    }
+
+    public void setActivities(Set<Activity> activities) {
+	this.activities = activities;
+    }
+
+    public Set<Deposit> getDeposites() {
+	return deposites;
+    }
+
+    public void setDeposites(Set<Deposit> deposites) {
+	this.deposites = deposites;
+    }
+
+    public Set<Account> getAccounts() {
+	return accounts;
+    }
+
+    public void setAccounts(Set<Account> accounts) {
+	this.accounts = accounts;
+    }
 
 }

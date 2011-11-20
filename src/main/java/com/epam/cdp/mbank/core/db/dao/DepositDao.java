@@ -5,8 +5,9 @@ import com.epam.cdp.mbank.model.Deposit;
 
 public class DepositDao extends BaseDao<Deposit> {
 
-    public DepositDao(Class<Deposit> model) {
-	super(model);
+    @Override
+    public Class<Deposit> getObjectClass() {
+	return Deposit.class;
     }
 
     @Override

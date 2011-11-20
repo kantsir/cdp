@@ -4,37 +4,33 @@ import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 
 public abstract class BaseDao<T> implements GenericDao<T> {
 
-    private Class<T> model;
     private EntityManager entityManager = EntityManagerHelper
-	    .getEjb3Configuration().buildEntityManagerFactory()
-	    .createEntityManager();
-    private EntityTransaction transaction = entityManager.getTransaction();
+	    .getEntityManager();
+    public EntityTransaction transaction = entityManager.getTransaction();
+
+    public abstract Class<T> getObjectClass();
 
     public abstract String getSelectAllQuery();
 
-    public BaseDao(Class<T> model) {
-	this.model = model;
+    public BaseDao() {
+
     }
 
     public T getById(Long id) {
-	T result = null;
 	transaction.begin();
-	result = entityManager.find(model, id);
+	T result = entityManager.find(getObjectClass(), id);
 	transaction.commit();
 	return result;
     }
 
     @SuppressWarnings("unchecked")
     public Collection<T> getAll() {
-	Collection<T> result = null;
 	transaction.begin();
-	String selectAllQuery = getSelectAllQuery();
-	Query query = entityManager.createQuery(selectAllQuery);
-	result = query.getResultList();
+	Collection<T> result = entityManager.createQuery(getSelectAllQuery())
+		.getResultList();
 	transaction.commit();
 	return result;
     }

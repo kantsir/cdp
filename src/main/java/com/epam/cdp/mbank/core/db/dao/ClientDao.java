@@ -5,14 +5,14 @@ import com.epam.cdp.mbank.model.Client;
 
 public class ClientDao extends BaseDao<Client> {
 
-    public ClientDao(Class<Client> model) {
-	super(model);
+    @Override
+    public Class<Client> getObjectClass() {
+	return Client.class;
     }
 
     @Override
     public String getSelectAllQuery() {
-	String result = "SELECT * FROM CLIENTS";
-	return result;
+	return "SELECT * FROM CLIENTS";
     }
 
 }

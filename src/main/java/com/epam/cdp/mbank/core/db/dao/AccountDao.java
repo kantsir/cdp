@@ -5,8 +5,9 @@ import com.epam.cdp.mbank.model.Account;
 
 public class AccountDao extends BaseDao<Account> {
 
-    public AccountDao(Class<Account> model) {
-	super(model);
+    @Override
+    public Class<Account> getObjectClass() {
+	return Account.class;
     }
 
     @Override
@@ -14,5 +15,6 @@ public class AccountDao extends BaseDao<Account> {
 	String result = "SELECT * FROM ACCOUNTS";
 	return result;
     }
+
 
 }

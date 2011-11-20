@@ -1,93 +1,96 @@
 package com.epam.cdp.mbank.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.epam.cdp.mbank.model.enums.DepositType;
 
 @Entity
 @Table(name = "DEPOSITES")
-public class Deposit implements Serializable{
+public class Deposit implements Serializable {
 
-	private static final long serialVersionUID = 3197140410428783216L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "DEPOSIT_ID")
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "DEPOSIT_ID")
+    private Long id;
 
-	@Column(name = "CLIENT_ID")
-	private String clientId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
 
-	@Column(name = "BALANCE")
-	private Double balance;
+    @Column(name = "BALANCE", nullable = false)
+    private Double balance;
 
-	@Column(name = "TYPE")
-	@Enumerated(EnumType.STRING)
-	private DepositType type;
+    @Column(name = "TYPE")
+    @Enumerated(EnumType.STRING)
+    private DepositType type;
 
-	@Column(name = "OPENING_DATE")
-	private Date openingDate;
+    @Column(name = "OPENING_DATE")
+    private Calendar openingDate;
 
-	@Column(name = "CLOSING_DATE")
-	private Date closingDate;
+    @Column(name = "CLOSING_DATE")
+    private Calendar closingDate;
 
-	public Deposit() {
+    public Deposit() {
 
-	}
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Double getBalance() {
+	return balance;
+    }
 
-	public String getClientId() {
-		return clientId;
-	}
+    public void setBalance(Double balance) {
+	this.balance = balance;
+    }
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
-	}
+    public DepositType getType() {
+	return type;
+    }
 
-	public Double getBalance() {
-		return balance;
-	}
+    public void setType(DepositType type) {
+	this.type = type;
+    }
 
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
+    public Calendar getOpeningDate() {
+	return openingDate;
+    }
 
-	public DepositType getType() {
-		return type;
-	}
+    public void setOpeningDate(Calendar openingDate) {
+	this.openingDate = openingDate;
+    }
 
-	public void setType(DepositType type) {
-		this.type = type;
-	}
+    public Calendar getClosingDate() {
+	return closingDate;
+    }
 
-	public Date getOpeningDate() {
-		return openingDate;
-	}
+    public void setClosingDate(Calendar closingDate) {
+	this.closingDate = closingDate;
+    }
 
-	public void setOpeningDate(Date openingDate) {
-		this.openingDate = openingDate;
-	}
+    public Client getClient() {
+	return client;
+    }
 
-	public Date getClosingDate() {
-		return closingDate;
-	}
-
-	public void setClosingDate(Date closingDate) {
-		this.closingDate = closingDate;
-	}
+    public void setClient(Client client) {
+	this.client = client;
+    }
 
 }
