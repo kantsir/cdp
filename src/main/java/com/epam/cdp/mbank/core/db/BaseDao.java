@@ -1,9 +1,11 @@
-package com.epam.cdp.mbank.core;
+package com.epam.cdp.mbank.core.db;
 
 import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+
+import com.epam.cdp.mbank.core.EntityManagerHelper;
 
 public abstract class BaseDao<T> implements GenericDao<T> {
 

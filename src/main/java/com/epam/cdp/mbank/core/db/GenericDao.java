@@ -1,4 +1,4 @@
-package com.epam.cdp.mbank.core;
+package com.epam.cdp.mbank.core.db;
 
 import java.util.Collection;
 
