@@ -11,10 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACTIVITIES")
+@NamedQuery(name = "Activities.findAll", query = "SELECT c FROM activities c")
 public class Activity implements Serializable {
 
     private static final long serialVersionUID = -7945665348252323705L;

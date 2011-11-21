@@ -12,8 +12,7 @@ public class AccountDao extends BaseDao<Account> {
 
     @Override
     public String getSelectAllQuery() {
-	String result = "SELECT * FROM ACCOUNTS";
-	return result;
+	return "Accounts.findAll";
     }
 
 

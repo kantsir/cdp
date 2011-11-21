@@ -12,7 +12,8 @@ public class ClientDao extends BaseDao<Client> {
 
     @Override
     public String getSelectAllQuery() {
-	return "SELECT * FROM CLIENTS";
+	return "Clients.findAll";
     }
 
+ 
 }

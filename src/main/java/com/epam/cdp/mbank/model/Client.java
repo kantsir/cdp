@@ -12,18 +12,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NamedQueries;
-import org.hibernate.annotations.NamedQuery;
-
 import com.epam.cdp.mbank.model.enums.ClientType;
 
-@NamedQueries(value = { @NamedQuery(name = "allClients", query = "SELECT c FROM CLIENTS c") })
 @Entity
 @Table(name = "CLIENTS")
+@NamedQuery(name = "Clients.findAll", query = "SELECT c FROM CLIENTS c")
 public class Client implements Serializable {
 
     private static final long serialVersionUID = 7417311628652888910L;

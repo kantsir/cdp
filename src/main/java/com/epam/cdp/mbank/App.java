@@ -1,6 +1,5 @@
 package com.epam.cdp.mbank;
 
-import com.epam.cdp.mbank.core.db.dao.AccountDao;
 import com.epam.cdp.mbank.core.db.dao.ClientDao;
 import com.epam.cdp.mbank.model.Account;
 import com.epam.cdp.mbank.model.Client;

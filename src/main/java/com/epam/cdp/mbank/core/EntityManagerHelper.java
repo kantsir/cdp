@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+
 public class EntityManagerHelper {
 
     private final static String PERSISTENCE_UNIT = "MBANK_PERSISTENCE_UNIT";

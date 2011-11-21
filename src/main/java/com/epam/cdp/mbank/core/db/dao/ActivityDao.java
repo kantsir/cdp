@@ -12,8 +12,7 @@ public class ActivityDao extends BaseDao<Activity> {
 
     @Override
     public String getSelectAllQuery() {
-	String result = "SELECT * FROM ACTIVITIES";
-	return result;
+	return "Activities.findAll";
     }
 
 

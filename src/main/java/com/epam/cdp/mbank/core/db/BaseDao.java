@@ -4,9 +4,11 @@ import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 
 import com.epam.cdp.mbank.core.EntityManagerHelper;
 
+@PersistenceContext
 public abstract class BaseDao<T> implements GenericDao<T> {
 
     private EntityManager entityManager = EntityManagerHelper
@@ -28,11 +30,9 @@ public abstract class BaseDao<T> implements GenericDao<T> {
 	return result;
     }
 
-    @SuppressWarnings("unchecked")
     public Collection<T> getAll() {
 	transaction.begin();
-	Collection<T> result = entityManager.createQuery(getSelectAllQuery())
-		.getResultList();
+	Collection<T> result = entityManager.createNamedQuery(getSelectAllQuery(),getObjectClass()).getResultList();
 	transaction.commit();
 	return result;
     }

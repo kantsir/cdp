@@ -13,12 +13,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.epam.cdp.mbank.model.enums.DepositType;
 
 @Entity
 @Table(name = "DEPOSITES")
+@NamedQuery(name = "Deposites.findAll", query = "SELECT dep FROM DEPOSITES dep")
 public class Deposit implements Serializable {
 
     private static final long serialVersionUID = 1L;

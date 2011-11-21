@@ -12,8 +12,7 @@ public class DepositDao extends BaseDao<Deposit> {
 
     @Override
     public String getSelectAllQuery() {
-	String result = "SELECT * FROM ACCOUNTS";
-	return result;
+	return "Deposites.findAll";
     }
 
 }

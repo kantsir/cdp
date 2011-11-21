@@ -12,8 +12,7 @@ public class PeopertyDao extends BaseDao<Property> {
 
     @Override
     public String getSelectAllQuery() {
-	String result = "SELECT * FROM PROPERTIES";
-	return result;
+	return "Properties.findAll";
     }
 
 
