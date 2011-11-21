@@ -32,7 +32,7 @@ public class Deposit implements Serializable {
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
 
-    @Column(name = "BALANCE", nullable = false)
+    @Column(name = "BALANCE")
     private Double balance;
 
     @Column(name = "TYPE")

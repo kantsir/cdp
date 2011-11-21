@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Property {
 
     @Id
-    @Column(name = "PROP_KEY", nullable=false, unique=true)
+    @Column(name = "PROP_KEY")
     private String propertyKey;
 
     @Column(name = "PROP_VALUE")

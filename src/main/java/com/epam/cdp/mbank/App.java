@@ -1,16 +1,9 @@
 package com.epam.cdp.mbank;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.epam.cdp.mbank.core.db.dao.AccountDao;
 import com.epam.cdp.mbank.core.db.dao.ClientDao;
-import com.epam.cdp.mbank.core.db.dao.PeopertyDao;
 import com.epam.cdp.mbank.model.Account;
-import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;
-import com.epam.cdp.mbank.model.Deposit;
-import com.epam.cdp.mbank.model.Property;
 import com.epam.cdp.mbank.model.enums.ClientType;
 
 public class App {
@@ -73,57 +66,26 @@ public class App {
 	// dep2.setType(DepositType.LONG);
 
 	Client client = new Client();
-	client.setClient_name("GRAND TEST3");
-	client.setEmail("TEST@epam.com");
-	client.setPassword("pass");
-	client.setComment("commmments");
-	client.setType(ClientType.PLATINUM);
-
-	Set<Deposit> deps = new HashSet<Deposit>();
-	for (int i = 1; i <= 10; i++) {
-	    Deposit dep = new Deposit();
-	    dep.setBalance(new Double(i));
-	    dep.setOpeningDate(Calendar.getInstance());
-	    Calendar closdate = Calendar.getInstance();
-	    closdate.set(2012 + i, 12, 23, 23, 59);
-	    dep.setClosingDate(closdate);
-	    deps.add(dep);
-	}
-
-	client.setDeposites(deps);
+	client.setClientName("GRAND TEST2");
+	client.setEmail("TEST2@epam.com");
+	client.setPassword("pass2");
+	client.setComment("commmments2");
+	client.setType(ClientType.GOLD);
 
 	Account account = new Account();
-	account.setBalance(154841.2);
-	account.setCreditLimit(15555555.25);
-	account.setComment("acc comment");
+	account.setBalance(1541.2);
+	account.setCreditLimit(1555.25);
+	account.setComment("acxvcvcvxv");
 
-	Set<Account> accs = new HashSet<Account>();
-	accs.add(account);
-	client.setAccounts(accs);
-
-	Calendar actdate = Calendar.getInstance();
-	actdate.set(2012, 12, 23, 23, 59);
-	Activity act = new Activity();
-	act.setActivityDate(actdate);
-	act.setCommision(152.35);
-	act.setDescription("dfdfdf");
-	act.setAmount(84545.5);
-
-	Set<Activity> acts = new HashSet<Activity>();
-	acts.add(act);
-	client.setActivities(acts);
+	client.setAccount(account);
 
 	ClientDao cd = new ClientDao();
 	cd.save(client);
-
-	Property prop = new Property();
-	prop.setPropertyKey("Key3");
-	prop.setPropertyValue("Value");
-
-	PeopertyDao propd = new PeopertyDao();
-	propd.save(prop);
 	
-	cd.getById(new Long(1)).getId();
+	
+  
+        
+        
 
     }
 }
