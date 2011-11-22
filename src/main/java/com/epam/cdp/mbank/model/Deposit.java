@@ -20,7 +20,7 @@ import com.epam.cdp.mbank.model.enums.DepositType;
 
 @Entity
 @Table(name = "DEPOSITES")
-@NamedQuery(name = "Deposites.findAll", query = "SELECT dep FROM DEPOSITES dep")
+@NamedQuery(name = "Deposites.findAll", query = "SELECT dep FROM Deposit dep")
 public class Deposit implements Serializable {
 
     private static final long serialVersionUID = 1L;

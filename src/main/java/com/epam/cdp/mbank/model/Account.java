@@ -9,13 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNTS")
-@NamedQuery(name = "Accounts.findAll", query = "SELECT acc FROM ACCOUNTS acc")
+@NamedQuery(name = "Accounts.findAll", query = "SELECT acc FROM Account acc")
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
 

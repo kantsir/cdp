@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PROPERTIES")
-@NamedQuery(name = "Properties.findAll", query = "SELECT prop FROM PROPERTIES prop")
+@NamedQuery(name = "Properties.findAll", query = "SELECT prop FROM Property prop")
 public class Property {
 
     @Id

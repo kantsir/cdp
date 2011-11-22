@@ -21,7 +21,7 @@ import com.epam.cdp.mbank.model.enums.ClientType;
 
 @Entity
 @Table(name = "CLIENTS")
-@NamedQuery(name = "Clients.findAll", query = "SELECT c FROM CLIENTS c")
+@NamedQuery(name = "Clients.findAll", query = "SELECT c FROM Client c")
 public class Client implements Serializable {
 
     private static final long serialVersionUID = 7417311628652888910L;

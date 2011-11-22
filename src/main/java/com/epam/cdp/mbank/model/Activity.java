@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACTIVITIES")
-@NamedQuery(name = "Activities.findAll", query = "SELECT c FROM activities c")
+@NamedQuery(name = "Activities.findAll", query = "SELECT act FROM Activity act")
 public class Activity implements Serializable {
 
     private static final long serialVersionUID = -7945665348252323705L;
