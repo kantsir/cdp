@@ -2,9 +2,9 @@ package com.epam.cdp.mbank.core.db;
 
 import java.util.Collection;
 
-public interface GenericDao<T> {
+public interface GenericDao<T,IDType> {
 
-    public T getById(Long id);
+    public T getById(IDType id);
 
     public Collection<T> getAll();
 

@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.epam.cdp.mbank.model.enums.ClientActiveState;
 import com.epam.cdp.mbank.model.enums.ClientType;
 
 @Entity
@@ -52,6 +53,9 @@ public class Client implements Serializable {
 
     @Column(name = "COMMENT")
     private String comment;
+    
+    private ClientActiveState clientActiveState;
+    
 
     // @OneToOne(cascade = CascadeType.ALL, mappedBy="client")
     @OneToOne(cascade = CascadeType.ALL)
@@ -153,5 +157,13 @@ public class Client implements Serializable {
     public void setClientName(String clientName) {
 	this.clientName = clientName;
     }
+
+	public ClientActiveState getClientActiveState() {
+		return clientActiveState;
+	}
+
+	public void setClientActiveState(ClientActiveState clientActiveState) {
+		this.clientActiveState = clientActiveState;
+	}
 
 }
