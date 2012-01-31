@@ -21,44 +21,37 @@ public class ClientAction implements ClientActionInterface {
 	private DepositDao depositDao;
 	private PropertyDao propertyDao;
 
-	@Override
 	public void updateClientDetails() {
 		// TODO? how put client;
-		Client client = null; 
+		Client client = null;
 		clientDao.save(client);
 	}
 
-	@Override
 	public Client getAllClientInfo() {
 		// TODO ? how put id
-		Long id = null; 
+		Long id = null;
 		return clientDao.getById(id);
 	}
 
-	@Override
 	public Account getClientAccountDetails() {
-		Long clientId = null; 
+		Long clientId = null;
 		return accountDao.getAccountByClientId(clientId);
 	}
 
-	@Override
 	public List<Deposit> getClientDepositesDetails() {
 		Long clientId = null;
 		return depositDao.getDepositesByClientId(clientId);
 	}
 
-	@Override
 	public List<Activity> getClientActivitiesDetails() {
 		Long clientId = null;
 		return activityDao.getActivityByClientId(clientId);
 	}
 
-	@Override
 	public Property getSystemPropertyValueByKey(String key) {
 		return propertyDao.getById(key);
 	}
 
-	@Override
 	public List<Property> getAllSystemProperty() {
 		return propertyDao.getAll();
 	}
