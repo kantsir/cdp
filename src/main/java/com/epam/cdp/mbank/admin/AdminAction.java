@@ -12,6 +12,7 @@ import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.Deposit;
 import com.epam.cdp.mbank.model.Property;
+import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
 public class AdminAction implements AdminActionInterface {
 
@@ -22,16 +23,16 @@ public class AdminAction implements AdminActionInterface {
 	private PropertyDao propertyDao;
 
 	public void addNewClient(Client client) {
+		client.setClientActiveState(ClientActiveState.ACTIVE);
 		clientDao.save(client);
-		clientDao.makeClientActive(client.getId());
-	}
+		}
 
 	public void updateClientDetails(Client client) {
 		clientDao.save(client);
 	}
 
 	public void removeClient(Long clientId) {
-		clientDao.makeClientDeleted(clientId);
+        clientDao.getById(clientId).setClientActiveState(ClientActiveState.DELETED);
 	}
 
 	public Client getClientById(Long clientId) {

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -22,7 +23,15 @@ import com.epam.cdp.mbank.model.enums.ClientType;
 
 @Entity
 @Table(name = "CLIENTS")
-@NamedQuery(name = "Clients.findAll", query = "SELECT c FROM Client c")
+@NamedQueries(value= {
+		@NamedQuery(name = "Clients.getAll", query = "SELECT c FROM Client c"),
+		@NamedQuery(name = "Clients.getByName", query = "SELECT c FROM Client c WHERE c.clientName = :clientName"),
+		@NamedQuery(name = "Clients.getByEmail", query = "SELECT c FROM Client c WHERE c.email = :email"),
+		@NamedQuery(name = "Clients.getByPhone", query = "SELECT c FROM Client c WHERE c.phone = :phone"),
+		@NamedQuery(name = "Clients.getByAddress", query = "SELECT c FROM Client c WHERE c.address = :address"),
+		@NamedQuery(name = "Clients.getByActiveState", query = "SELECT c FROM Client c WHERE c.clientActiveState = :clientActiveState")
+		
+})
 public class Client implements Serializable {
 
     private static final long serialVersionUID = 7417311628652888910L;
@@ -54,6 +63,8 @@ public class Client implements Serializable {
     @Column(name = "COMMENT")
     private String comment;
     
+    @Column(name ="CLIENTACTIVESTATE")
+    @Enumerated(EnumType.STRING)
     private ClientActiveState clientActiveState;
     
 
