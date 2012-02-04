@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="xsd/client.xsd">
+	<clients client_id="1" address="testDatabaseFieldAdress1" client_name="testDatabaseFieldName1"
+		comment="This is comments1" clientactivestate="ACTIVE"
+		email="testDatabaseField1@testDatabaseField.com" password="testDatabaseFieldPassword1"
+		phone="+1234567890" type="REGULAR" />
+
+	<clients client_id="2" address="testDatabaseFieldAdress2" client_name="testDatabaseFieldName2"
+		comment="This is comments2" clientactivestate="ACTIVE"
+		email="testDatabaseField2@testDatabaseField.com" password="testDatabaseFieldPassword2"
+		phone="+2345678901" type="GOLD" />
+
+	<clients client_id="3" address="testDatabaseFieldAdress3" client_name="testDatabaseFieldName3"
+		comment="This is comments3" clientactivestate="DELETE"
+		email="testDatabaseField3@testDatabaseField.com" password="testDatabaseFieldPassword3"
+		phone="+3456789012" type="GOLD" />
+
+	<clients client_id="4" address="testDatabaseFieldAdress4" client_name="testDatabaseFieldName4"
+		comment="This is comments4" clientactivestate="DELETE"
+		email="testDatabaseField4@testDatabaseField.com" password="testDatabaseFieldPassword4"
+		phone="+4567890123" type="GOLD" />
+
+	<clients client_id="5" address="testDatabaseFieldAdress5" client_name="testDatabaseFieldName5"
+		comment="This is comments5" clientactivestate="ACTIVE"
+		email="testDatabaseField5@testDatabaseField.com" password="testDatabaseFieldPassword5"
+		phone="+5678901234" type="PLATINUM" />
+</dataset>
