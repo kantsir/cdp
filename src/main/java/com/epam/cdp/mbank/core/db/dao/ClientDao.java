@@ -8,11 +8,11 @@ import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
 public class ClientDao extends BaseDao<Client, Long> {
 
+	private static final String CLIENTS_GET_ALL = "Clients.getAll";
 	private static final String CLIENTS_GET_BY_ADRESS = "Clients.getByAdress";
 	private static final String CLIENTS_GET_BY_PHONE = "Clients.getByPhone";
 	private static final String CLIENTS_GET_BY_EMAIL = "Clients.getByEmail";
 	private static final String CLIENTS_GET_BY_NAME = "Clients.getByName";
-	private static final String CLIENTS_GET_ALL = "Clients.getAll";
 	private static final String CLIENTS_GET_ALL_BY_ACTIVESTATE = "Clients.getByActiveState";
 	
 
@@ -27,23 +27,23 @@ public class ClientDao extends BaseDao<Client, Long> {
 	}
 
 	public List<Client> getClientsByActiveState(ClientActiveState clientActiveState) {
-		return createNamedQuery(CLIENTS_GET_ALL_BY_ACTIVESTATE).getResultList();
+		return createNamedQuery(CLIENTS_GET_ALL_BY_ACTIVESTATE).setParameter("clientActiveState", clientActiveState).getResultList();
 	}
 
 	public List<Client> getClientsByName(String clientName) {
-		return createNamedQuery(CLIENTS_GET_BY_NAME).getResultList();
+		return createNamedQuery(CLIENTS_GET_BY_NAME).setParameter("clientName", clientName).getResultList();
 	}
 
 	public List<Client> getClientsByEmail(String clientEmail) {
-		return createNamedQuery(CLIENTS_GET_BY_EMAIL).getResultList();
+		return createNamedQuery(CLIENTS_GET_BY_EMAIL).setParameter("email", clientEmail).getResultList();
 	}
 
 	public List<Client> getClientsByPhone(String clientPhone) {
-		return createNamedQuery(CLIENTS_GET_BY_PHONE).getResultList();
+		return createNamedQuery(CLIENTS_GET_BY_PHONE).setParameter("phone",clientPhone).getResultList();
 	}
 
 	public List<Client> getClientsByAdress(String clientAdress) {
-		return createNamedQuery(CLIENTS_GET_BY_ADRESS).getResultList();
+		return createNamedQuery(CLIENTS_GET_BY_ADRESS).setParameter("address", clientAdress).getResultList();
 	}
 
 }

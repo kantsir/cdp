@@ -51,7 +51,7 @@ public class Client implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "ADRESS")
+    @Column(name = "ADDRESS")
     private String address;
 
     @Column(name = "EMAIL")

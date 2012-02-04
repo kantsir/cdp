@@ -21,7 +21,7 @@ public class DepositDao extends BaseDao<Deposit,Long> {
     }
 
 	public List<Deposit> getDepositesByClientId(Long clientId) {
-		return createNamedQuery(DEPOSITES_GET_BY_CLIENT_ID).getResultList();
+		return createNamedQuery(DEPOSITES_GET_BY_CLIENT_ID).setParameter("clientId",clientId).getResultList();
 	}
 
 }

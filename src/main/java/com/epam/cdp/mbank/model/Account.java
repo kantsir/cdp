@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "ACCOUNTS")
 @NamedQueries(value = { 
 		@NamedQuery(name = "Accounts.findAll", query = "SELECT acc FROM Account acc"), 
-		@NamedQuery(name = "Accounts.getByClientId", query = "SELECT acc FROM Account acc WHERE acc.client = :client ")
+		@NamedQuery(name = "Accounts.getByClientId", query = "SELECT acc FROM Account acc WHERE acc.client.id = :clientId ")
 })
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -21,7 +21,7 @@ public class ActivityDao extends BaseDao<Activity,Long> {
     }
 
 	public List<Activity> getActivityByClientId(Long clientId) {
-		return createNamedQuery(ACTIVITY_GET_BY_CLIENT_ID).getResultList();
+		return createNamedQuery(ACTIVITY_GET_BY_CLIENT_ID).setParameter("clientId",clientId).getResultList();
 	}
 
 

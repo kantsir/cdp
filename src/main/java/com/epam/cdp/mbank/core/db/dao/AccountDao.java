@@ -19,7 +19,7 @@ public class AccountDao extends BaseDao<Account,Long> {
     }
 
 	public Account getAccountByClientId(Long clientId) {
-		return createNamedQuery(ACCOUNTS_GET_BY_CLIENT_ID).getSingleResult(); 
+		return createNamedQuery(ACCOUNTS_GET_BY_CLIENT_ID).setParameter("clientId",clientId).getSingleResult(); 
 	}
 
 
