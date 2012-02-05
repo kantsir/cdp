@@ -81,6 +81,7 @@ public class Client implements Serializable {
     @JoinColumn(name = "CLIENT_ID")
     private Set<Activity> activities;
 
+        
     public Client() {
     }
 

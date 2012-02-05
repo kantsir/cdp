@@ -9,7 +9,7 @@ import com.epam.cdp.mbank.model.enums.ClientActiveState;
 public class ClientDao extends BaseDao<Client, Long> {
 
 	private static final String CLIENTS_GET_ALL = "Clients.getAll";
-	private static final String CLIENTS_GET_BY_ADRESS = "Clients.getByAdress";
+	private static final String CLIENTS_GET_BY_ADDRESS = "Clients.getByAddress";
 	private static final String CLIENTS_GET_BY_PHONE = "Clients.getByPhone";
 	private static final String CLIENTS_GET_BY_EMAIL = "Clients.getByEmail";
 	private static final String CLIENTS_GET_BY_NAME = "Clients.getByName";
@@ -43,7 +43,7 @@ public class ClientDao extends BaseDao<Client, Long> {
 	}
 
 	public List<Client> getClientsByAdress(String clientAdress) {
-		return createNamedQuery(CLIENTS_GET_BY_ADRESS).setParameter("address", clientAdress).getResultList();
+		return createNamedQuery(CLIENTS_GET_BY_ADDRESS).setParameter("address", clientAdress).getResultList();
 	}
 
 }
