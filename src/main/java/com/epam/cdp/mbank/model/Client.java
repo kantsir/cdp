@@ -1,6 +1,7 @@
 package com.epam.cdp.mbank.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -68,18 +69,16 @@ public class Client implements Serializable {
     private ClientActiveState clientActiveState;
     
 
-    // @OneToOne(cascade = CascadeType.ALL, mappedBy="client")
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CLIENT_ID")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy="client")
     private Account account;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CLIENT_ID")
-    private Set<Deposit> deposites;
+   
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
+    private List<Deposit> deposites;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CLIENT_ID")
-    private Set<Activity> activities;
+   
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
+    private List<Activity> activities;
 
         
     public Client() {
@@ -137,19 +136,19 @@ public class Client implements Serializable {
 	this.comment = comment;
     }
 
-    public Set<Activity> getActivities() {
+    public List<Activity> getActivities() {
 	return activities;
     }
 
-    public void setActivities(Set<Activity> activities) {
+    public void setActivities(List<Activity> activities) {
 	this.activities = activities;
     }
 
-    public Set<Deposit> getDeposites() {
+    public List<Deposit> getDeposites() {
 	return deposites;
     }
 
-    public void setDeposites(Set<Deposit> deposites) {
+    public void setDeposites(List<Deposit> deposites) {
 	this.deposites = deposites;
     }
 

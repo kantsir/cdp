@@ -39,8 +39,8 @@
 	</xs:complexType>
 
 	<xs:complexType name="activity">
+		<xs:attribute name="activity_id" type="xs:integer" />
 		<xs:attribute name="activity_date" type="dbtimetype" />
-		<xs:attribute name="id" type="xs:integer" />
 		<xs:attribute name="client_id" type="xs:integer" />
 		<xs:attribute name="amount" type="xs:double" />
 		<xs:attribute name="commision" type="xs:double" />
@@ -60,7 +60,7 @@
 	</xs:complexType>
 
 	<xs:complexType name="deposit">
-		<xs:attribute name="id" type="xs:integer" />
+		<xs:attribute name="deposit_id" type="xs:integer" />
 		<xs:attribute name="client_id" type="xs:integer" />
 		<xs:attribute name="opening_date" type="dbtimetype" />
 		<xs:attribute name="closing_date" type="dbtimetype" />

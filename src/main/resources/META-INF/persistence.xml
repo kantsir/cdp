@@ -27,7 +27,7 @@
 			<property name="hibernate.show_sql" value="true" />
 
 			<!-- Validate the database schema on startup -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
 			<!-- or -->
 			<!-- Delete all database schema on startup -->
 			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->

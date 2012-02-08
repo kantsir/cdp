@@ -16,76 +16,67 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNTS")
-@NamedQueries(value = { 
-		@NamedQuery(name = "Accounts.findAll", query = "SELECT acc FROM Account acc"), 
-		@NamedQuery(name = "Accounts.getByClientId", query = "SELECT acc FROM Account acc WHERE acc.client.id = :clientId ")
-})
+@NamedQueries(value = {
+		@NamedQuery(name = "Accounts.findAll", query = "SELECT acc FROM Account acc"),
+		@NamedQuery(name = "Accounts.getByClientId", query = "SELECT acc FROM Account acc WHERE acc.client.id = :clientId ") })
 public class Account implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ACCOUNT_ID")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ACCOUNT_ID")
+	private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CLIENT_ID")
-    private Client client;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "CLIENT_ID", nullable = true)
+	private Client client;
 
-    @Column(name = "BALANCE")
-    private Double balance;
+	@Column(name = "BALANCE", nullable = true)
+	private Double balance;
 
-    @Column(name = "CREDIT_LIMIT")
-    private Double creditLimit;
+	@Column(name = "CREDIT_LIMIT", nullable = true)
+	private Double creditLimit;
 
-    @Column(name = "COMMENT")
-    private String comment;
+	@Column(name = "COMMENT", nullable = true)
+	private String comment;
 
-    public Account() {
-    }
+	public Account() {
+	}
 
-    public Long getId() {
-	return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Double getBalance() {
-	return balance;
-    }
+	public Double getBalance() {
+		return balance;
+	}
 
-    public void setBalance(Double balance) {
-	this.balance = balance;
-    }
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
 
-    public Double getCreditLimit() {
-	return creditLimit;
-    }
+	public Double getCreditLimit() {
+		return creditLimit;
+	}
 
-    public void setCreditLimit(Double creditLimit) {
-	this.creditLimit = creditLimit;
-    }
+	public void setCreditLimit(Double creditLimit) {
+		this.creditLimit = creditLimit;
+	}
 
-    public String getComment() {
-	return comment;
-    }
+	public String getComment() {
+		return comment;
+	}
 
-    public void setComment(String comment) {
-	this.comment = comment;
-    }
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
-    public Client getClient() {
-	return client;
-    }
+	public Client getClient() {
+		return client;
+	}
 
-    public void setClient(Client client) {
-	this.client = client;
-    }
-
-    // public Long getClientId() {
-    // return clientId;
-    // }
-    //
-    // public void setClientId(Long clientId) {
-    // this.clientId = clientId;
-    // }
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
 }

@@ -13,6 +13,7 @@ public class EntityManagerHelper {
     private static EntityManagerFactory entityFactory = Persistence
 	    .createEntityManagerFactory(PERSISTENCE_UNIT);
 
+    @PersistenceContext
     private static EntityManager entityManager = getEntityFactory()
 	    .createEntityManager();
 

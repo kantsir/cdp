@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="xsd/mbank.xsd">
+	<clients address="testDatabaseFieldAddress1" client_name="testDatabaseFieldName1"
+		comment="This is comments1" clientactivestate="ACTIVE"
+		email="testDatabaseField1@testDatabaseField.com" password="testDatabaseFieldPassword1"
+		phone="+1234567890" type="REGULAR" />
+
+	<clients address="testDatabaseFieldAddress2" client_name="testDatabaseFieldName2"
+		comment="This is comments2" clientactivestate="DELETED"
+		email="testDatabaseField2@testDatabaseField.com" password="testDatabaseFieldPassword2"
+		phone="+2345678901" type="GOLD" />
+
+	<clients address="testDatabaseFieldAddress3" client_name="testDatabaseFieldName3"
+		comment="This is comments3" clientactivestate="ACTIVE"
+		email="testDatabaseField3@testDatabaseField.com" password="testDatabaseFieldPassword3"
+		phone="+3456789012" type="PLATINUM" />
+</dataset>

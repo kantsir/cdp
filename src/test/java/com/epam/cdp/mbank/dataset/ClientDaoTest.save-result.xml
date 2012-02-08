@@ -10,4 +10,11 @@
 		comment="This is comments2" clientactivestate="DELETED"
 		email="testDatabaseField2@testDatabaseField.com" password="testDatabaseFieldPassword2"
 		phone="+2345678901" type="GOLD" />
+
+	<clients address="testDatabaseFieldAddress3" client_name="testDatabaseFieldName3"
+		comment="This is comments3" clientactivestate="ACTIVE"
+		email="testDatabaseField3@testDatabaseField.com" password="testDatabaseFieldPassword3"
+		phone="+3456789012" type="PLATINUM" />
+
+	<clients client_name="newClientName" />
 </dataset>

@@ -1,13 +1,7 @@
 package com.epam.cdp.mbank;
 
-import java.util.Calendar;
-
-import com.epam.cdp.mbank.core.db.dao.ActivityDao;
 import com.epam.cdp.mbank.core.db.dao.ClientDao;
-import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;
-import com.epam.cdp.mbank.model.enums.ClientActiveState;
-import com.epam.cdp.mbank.model.enums.ClientType;
 
 
 public class App {
@@ -24,21 +18,26 @@ public class App {
 //	 
 //	 ClientDao cd = new ClientDao();
 //	 cd.save(client);
+//	 System.out.println("saved");
+ 
+	
+//	ClientDao cd = new ClientDao();
+//	 Client client2 = cd.getById(new Long(1));
+//	System.out.println(client2.getId().longValue());
+//
+//	ClientDao cd2 = new ClientDao();
+//	cd2.remove(client2);
+//	System.out.println("removed");
 //	
-//	 ActivityDao ad = new ActivityDao();
-//	 Activity act = new Activity();
-//	 Calendar calendar = Calendar.getInstance();
-//	 calendar.set(2012, 12, 31);
-//	 
-//	 //act.setActivityDate(calendar);
-//	 //act.setDescription("this");
-//	 //act.setClient(client);
-//	// ad.save(act);
-//	 System.out.println(ad.getById(new Long(1)).getActivityDate());
-	 
+//	
+//	 Client client3 = cd.getById(new Long(1));
+//	System.out.println(client3.getId().longValue());
+//	
 	
+	ClientDao cd = new ClientDao();
+
 	
-	
+
   
         
         

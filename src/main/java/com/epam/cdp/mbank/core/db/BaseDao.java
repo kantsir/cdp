@@ -32,15 +32,20 @@ public abstract class BaseDao<T, IDType> implements GenericDao<T, IDType> {
 	}
 
 	public T getById(IDType id) {
+		T result = null;
 		transaction.begin();
-		T result = entityManager.find(getObjectClass(), id);
+		if (id.getClass() == Long.class) {
+			Long idLong = (Long) id;
+			 result = entityManager.find(getObjectClass(), idLong.longValue());
+		} else if (id.getClass() == String.class) {
+			 result = entityManager.find(getObjectClass(), id);
+		}
 		transaction.commit();
 		return result;
 	}
 
 	public List<T> getAll() {
-		List<T> result = createNamedQuery(getSelectAllQuery())
-				.getResultList();
+		List<T> result = createNamedQuery(getSelectAllQuery()).getResultList();
 		return result;
 	}
 
