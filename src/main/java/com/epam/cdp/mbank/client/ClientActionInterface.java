@@ -10,9 +10,9 @@ import com.epam.cdp.mbank.model.Property;
 
 public interface ClientActionInterface {
 
-	public void updateClientDetails();
+	public void updateClientDetails(Client client);
 
-	public Client getAllClientInfo();
+	public Client getAllClientInfo(Long id);
 
 	public Account getClientAccountDetails();
 

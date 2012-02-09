@@ -21,16 +21,12 @@ public class ClientAction implements ClientActionInterface {
 	private DepositDao depositDao = new DepositDao();
 	private PropertyDao propertyDao = new PropertyDao();
 
-	public void updateClientDetails() {
-		// TODO? how put client;
-		Client client = null;
+	public void updateClientDetails(Client client) {
 		clientDao.save(client);
 	}
-
-	public Client getAllClientInfo() {
-		// TODO ? how put id
-		Long id = null;
-		return clientDao.getById(id);
+	
+	public Client getAllClientInfo(Long clientId) {
+		return clientDao.getById(clientId);
 	}
 
 	public Account getClientAccountDetails() {
