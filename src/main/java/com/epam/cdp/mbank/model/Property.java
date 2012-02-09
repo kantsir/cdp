@@ -11,7 +11,13 @@ import javax.persistence.Table;
 @NamedQuery(name = "Properties.findAll", query = "SELECT prop FROM Property prop")
 public class Property {
 
-    @Id
+    public Property(String propertyKey, String propertyValue) {
+		super();
+		this.propertyKey = propertyKey;
+		this.propertyValue = propertyValue;
+	}
+
+	@Id
     @Column(name = "PROP_KEY")
     private String propertyKey;
 

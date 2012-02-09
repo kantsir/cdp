@@ -3,6 +3,7 @@ package com.epam.cdp.mbank;
 import java.util.Arrays;
 import java.util.List;
 
+import org.hibernate.annotations.ForeignKey;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4;
@@ -17,13 +18,14 @@ import com.epam.cdp.mbank.core.db.dao.ClientDao;
 import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
+
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class ClientDaoTest extends UnitilsJUnit4 {
 
 	ClientDao cd = new ClientDao();
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByActiveStateACTIVE() {
 		List<Client> clients = cd
 				.getClientsByActiveState(ClientActiveState.ACTIVE);
@@ -33,7 +35,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByActiveStateDELETED() {
 		List<Client> clients = cd
 				.getClientsByActiveState(ClientActiveState.DELETED);
@@ -42,7 +44,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByName() {
 		List<String> expectedPropertyValues = Arrays
 				.asList("testDatabaseFieldAddress1");
@@ -52,7 +54,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByPhone() {
 		List<String> expectedPropertyValues = Arrays
 				.asList("testDatabaseFieldName2");
@@ -62,7 +64,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByEmail() {
 		List<String> expectedPropertyValues = Arrays
 				.asList("testDatabaseFieldName3");
@@ -73,7 +75,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getClientsByAdress() {
 		List<String> expectedPropertyValues = Arrays
 				.asList("testDatabaseFieldName1");
@@ -84,7 +86,7 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.get.xml")
+	@DataSet("dataset/client/ClientDaoTest.get.xml")
 	public void getAll() {
 
 		List<Client> actualObjects = cd.getAll();
@@ -94,8 +96,8 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 	}
 
 	@Test
-	@DataSet("dataset/ClientDaoTest.save.xml")
-	@ExpectedDataSet("dataset/ClientDaoTest.save-result.xml")
+	@DataSet("dataset/client/ClientDaoTest.save.xml")
+	@ExpectedDataSet("dataset/client/ClientDaoTest.save-result.xml")
 	public void save() {
 		Client client = new Client();
 		client.setClientName("newClientName");
@@ -104,8 +106,8 @@ public class ClientDaoTest extends UnitilsJUnit4 {
 
 	@Test
 	@Transactional(TransactionMode.DISABLED)
-	@DataSet("dataset/ClientDaoTest.remove.xml")
-	@ExpectedDataSet("dataset/ClientDaoTest.remove-result.xml")
+	@DataSet("dataset/client/ClientDaoTest.remove.xml")
+	@ExpectedDataSet("dataset/client/ClientDaoTest.remove-result.xml")
 	public void remove() {
 		Client client = cd.getClientsByName("testDatabaseFieldName3").get(0);
 		cd.remove(client);

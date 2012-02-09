@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="xsd/mbank.xsd">
+		xsi:noNamespaceSchemaLocation="../xsd/mbank.xsd">
 	<clients address="testDatabaseFieldAddress1" client_name="testDatabaseFieldName1"
 		comment="This is comments1" clientactivestate="ACTIVE"
 		email="testDatabaseField1@testDatabaseField.com" password="testDatabaseFieldPassword1"
