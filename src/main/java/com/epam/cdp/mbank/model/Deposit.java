@@ -99,4 +99,58 @@ public class Deposit implements Serializable {
 	this.client = client;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result
+				+ ((closingDate == null) ? 0 : closingDate.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((openingDate == null) ? 0 : openingDate.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Deposit other = (Deposit) obj;
+		if (balance == null) {
+			if (other.balance != null)
+				return false;
+		} else if (!balance.equals(other.balance))
+			return false;
+		if (client == null) {
+			if (other.client != null)
+				return false;
+		} else if (!client.equals(other.client))
+			return false;
+		if (closingDate == null) {
+			if (other.closingDate != null)
+				return false;
+		} else if (!closingDate.equals(other.closingDate))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (openingDate == null) {
+			if (other.openingDate != null)
+				return false;
+		} else if (!openingDate.equals(other.openingDate))
+			return false;
+		if (type != other.type)
+			return false;
+		return true;
+	}
+
 }

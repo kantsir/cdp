@@ -15,11 +15,11 @@ import com.epam.cdp.mbank.model.Property;
 
 public class ClientAction implements ClientActionInterface {
 
-	private ClientDao clientDao;
-	private AccountDao accountDao;
-	private ActivityDao activityDao;
-	private DepositDao depositDao;
-	private PropertyDao propertyDao;
+	private ClientDao clientDao = new ClientDao();
+	private AccountDao accountDao = new AccountDao();
+	private ActivityDao activityDao = new ActivityDao();
+	private DepositDao depositDao = new DepositDao();
+	private PropertyDao propertyDao = new PropertyDao();
 
 	public void updateClientDetails() {
 		// TODO? how put client;

@@ -11,37 +11,69 @@ import javax.persistence.Table;
 @NamedQuery(name = "Properties.findAll", query = "SELECT prop FROM Property prop")
 public class Property {
 
-    public Property(String propertyKey, String propertyValue) {
+	@Id
+	@Column(name = "PROP_KEY")
+	private String propertyKey;
+
+	@Column(name = "PROP_VALUE")
+	private String propertyValue;
+
+	public Property() {
+
+	}
+
+	public Property(String propertyKey, String propertyValue) {
 		super();
 		this.propertyKey = propertyKey;
 		this.propertyValue = propertyValue;
 	}
 
-	@Id
-    @Column(name = "PROP_KEY")
-    private String propertyKey;
+	public String getPropertyKey() {
+		return propertyKey;
+	}
 
-    @Column(name = "PROP_VALUE")
-    private String propertyValue;
+	public void setPropertyKey(String propertyKey) {
+		this.propertyKey = propertyKey;
+	}
 
-    public Property() {
-	super();
-    }
+	public String getPropertyValue() {
+		return propertyValue;
+	}
 
-    public String getPropertyKey() {
-	return propertyKey;
-    }
+	public void setPropertyValue(String propertyValue) {
+		this.propertyValue = propertyValue;
+	}
 
-    public void setPropertyKey(String propertyKey) {
-	this.propertyKey = propertyKey;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((propertyKey == null) ? 0 : propertyKey.hashCode());
+		result = prime * result
+				+ ((propertyValue == null) ? 0 : propertyValue.hashCode());
+		return result;
+	}
 
-    public String getPropertyValue() {
-	return propertyValue;
-    }
-
-    public void setPropertyValue(String propertyValue) {
-	this.propertyValue = propertyValue;
-    }
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Property other = (Property) obj;
+		if (propertyKey == null) {
+			if (other.propertyKey != null)
+				return false;
+		} else if (!propertyKey.equals(other.propertyKey))
+			return false;
+		if (propertyValue == null) {
+			if (other.propertyValue != null)
+				return false;
+		} else if (!propertyValue.equals(other.propertyValue))
+			return false;
+		return true;
+	}
 }
