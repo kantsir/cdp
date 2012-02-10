@@ -1,4 +1,4 @@
-package com.epam.cdp.mbank.core.db;
+package com.epam.cdp.mbank.core.db.daoImplementation;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,14 +6,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.epam.cdp.mbank.core.EntityManagerHelper;
-import com.epam.cdp.mbank.model.Client;
+import com.epam.cdp.mbank.core.db.daoInterfaces.GenericDao;
 
 @PersistenceContext
-public abstract class BaseDao<T, IDType> implements GenericDao<T, IDType> {
+public abstract class AbstractBaseDao<T, IDType> implements GenericDao<T, IDType> {
 
 	private EntityManager entityManager = EntityManagerHelper
 			.getEntityManager();
@@ -23,7 +22,7 @@ public abstract class BaseDao<T, IDType> implements GenericDao<T, IDType> {
 
 	protected abstract String getSelectAllQuery();
 
-	public BaseDao() {
+	public AbstractBaseDao() {
 
 	}
 

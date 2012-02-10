@@ -1,9 +1,9 @@
-package com.epam.cdp.mbank.core.db.dao;
+package com.epam.cdp.mbank.core.db.daoImplementation;
 
-import com.epam.cdp.mbank.core.db.BaseDao;
+import com.epam.cdp.mbank.core.db.daoInterfaces.IPropertyDao;
 import com.epam.cdp.mbank.model.Property;
 
-public class PropertyDao extends BaseDao<Property,String> {
+public class PropertyDao extends AbstractBaseDao<Property,String> implements IPropertyDao {
 
     private static final String PROPERTIES_FIND_ALL = "Properties.findAll";
 

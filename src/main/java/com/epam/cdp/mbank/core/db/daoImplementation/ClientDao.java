@@ -1,12 +1,12 @@
-package com.epam.cdp.mbank.core.db.dao;
+package com.epam.cdp.mbank.core.db.daoImplementation;
 
 import java.util.List;
 
-import com.epam.cdp.mbank.core.db.BaseDao;
+import com.epam.cdp.mbank.core.db.daoInterfaces.IClientDao;
 import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
-public class ClientDao extends BaseDao<Client, Long> {
+public class ClientDao extends AbstractBaseDao<Client, Long> implements IClientDao {
 
 	private static final String CLIENTS_GET_ALL = "Clients.getAll";
 	private static final String CLIENTS_GET_BY_ADDRESS = "Clients.getByAddress";

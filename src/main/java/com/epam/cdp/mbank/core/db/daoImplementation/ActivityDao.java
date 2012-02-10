@@ -1,11 +1,11 @@
-package com.epam.cdp.mbank.core.db.dao;
+package com.epam.cdp.mbank.core.db.daoImplementation;
 
 import java.util.List;
 
-import com.epam.cdp.mbank.core.db.BaseDao;
+import com.epam.cdp.mbank.core.db.daoInterfaces.IActivityDao;
 import com.epam.cdp.mbank.model.Activity;
 
-public class ActivityDao extends BaseDao<Activity,Long> {
+public class ActivityDao extends AbstractBaseDao<Activity,Long> implements IActivityDao {
 
     private static final String ACTIVITY_GET_BY_CLIENT_ID = "Activity.getByClientId";
 	private static final String ACTIVITIES_FIND_ALL = "Activities.findAll";

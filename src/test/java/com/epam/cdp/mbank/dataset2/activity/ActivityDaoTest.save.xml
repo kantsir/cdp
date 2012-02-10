@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../xsd/mbank.xsd">
+	<activities amount="1.0" commision="1.0" description="description1"
+		activity_date="2012-01-11 11:11:11" />
+	<activities amount="2.0" commision="2.0" description="description2"
+		activity_date="2012-02-12 12:12:12" />
+	<activities amount="3.0" commision="3.0" description="description3"
+		activity_date="2012-03-13 13:13:13" />
+</dataset>
+

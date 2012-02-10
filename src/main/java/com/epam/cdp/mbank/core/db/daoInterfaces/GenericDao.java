@@ -1,4 +1,4 @@
-package com.epam.cdp.mbank.core.db;
+package com.epam.cdp.mbank.core.db.daoInterfaces;
 
 import java.util.Collection;
 

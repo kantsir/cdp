@@ -1,12 +1,12 @@
-package com.epam.cdp.mbank.admin;
+package com.epam.cdp.mbank.service.admin;
 
 import java.util.List;
 
-import com.epam.cdp.mbank.core.db.dao.AccountDao;
-import com.epam.cdp.mbank.core.db.dao.ActivityDao;
-import com.epam.cdp.mbank.core.db.dao.ClientDao;
-import com.epam.cdp.mbank.core.db.dao.DepositDao;
-import com.epam.cdp.mbank.core.db.dao.PropertyDao;
+import com.epam.cdp.mbank.core.db.daoImplementation.AccountDao;
+import com.epam.cdp.mbank.core.db.daoImplementation.ActivityDao;
+import com.epam.cdp.mbank.core.db.daoImplementation.ClientDao;
+import com.epam.cdp.mbank.core.db.daoImplementation.DepositDao;
+import com.epam.cdp.mbank.core.db.daoImplementation.PropertyDao;
 import com.epam.cdp.mbank.model.Account;
 import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;

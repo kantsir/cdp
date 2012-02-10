@@ -1,4 +1,4 @@
-package com.epam.cdp.mbank.admin;
+package com.epam.cdp.mbank.service.admin;
 
 import java.util.List;
 
