@@ -1,13 +1,13 @@
 package com.epam.cdp.mbank;
 
-import com.epam.cdp.mbank.service.admin.AdminAction;
+import com.epam.cdp.mbank.service.admin.AdminActionImpl;
 
 public class App {
 
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 
-		AdminAction act = new AdminAction();
+		AdminActionImpl act = new AdminActionImpl();
         
 		System.out.println(act.getAllClients().size());
 	
