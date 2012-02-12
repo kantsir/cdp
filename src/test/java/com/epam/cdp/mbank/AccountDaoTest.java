@@ -13,13 +13,14 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.reflectionassert.ReflectionAssert;
 
-import com.epam.cdp.mbank.core.db.daoImplementation.AccountDao;
+import com.epam.cdp.mbank.core.db.dao.AccountDao;
+import com.epam.cdp.mbank.core.db.daoImpl.AccountDaoImpl;
 import com.epam.cdp.mbank.model.Account;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class AccountDaoTest extends UnitilsJUnit4 {
 
-	AccountDao ad = new AccountDao();
+	AccountDao ad = new AccountDaoImpl();
 
 	@Test
 	@DataSet("/dataset/account/AccountDaoTest.get.xml")

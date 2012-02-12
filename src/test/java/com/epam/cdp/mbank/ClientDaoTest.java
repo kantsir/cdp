@@ -13,14 +13,15 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.reflectionassert.ReflectionAssert;
 
-import com.epam.cdp.mbank.core.db.daoImplementation.ClientDao;
+import com.epam.cdp.mbank.core.db.dao.ClientDao;
+import com.epam.cdp.mbank.core.db.daoImpl.ClientDaoImpl;
 import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class ClientDaoTest extends UnitilsJUnit4 {
 
-	ClientDao cd = new ClientDao();
+	ClientDao cd = new ClientDaoImpl();
 
 	@Test
 	@DataSet("/dataset/client/ClientDaoTest.get.xml")

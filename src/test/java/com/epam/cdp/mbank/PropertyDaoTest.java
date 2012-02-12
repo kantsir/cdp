@@ -13,13 +13,14 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.reflectionassert.ReflectionAssert;
 
-import com.epam.cdp.mbank.core.db.daoImplementation.PropertyDao;
+import com.epam.cdp.mbank.core.db.dao.PropertyDao;
+import com.epam.cdp.mbank.core.db.daoImpl.PropertyDaoImpl;
 import com.epam.cdp.mbank.model.Property;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class PropertyDaoTest extends UnitilsJUnit4 {
 
-	PropertyDao pd = new PropertyDao();
+	PropertyDao pd = new PropertyDaoImpl();
 
 	@Test
 	@DataSet("/dataset/property/PropertyDaoTest.get.xml")

@@ -14,14 +14,15 @@ import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.reflectionassert.ReflectionAssert;
 
-import com.epam.cdp.mbank.core.db.daoImplementation.DepositDao;
+import com.epam.cdp.mbank.core.db.dao.DepositDao;
+import com.epam.cdp.mbank.core.db.daoImpl.DepositDaoImpl;
 import com.epam.cdp.mbank.model.Deposit;
 import com.epam.cdp.mbank.model.enums.DepositType;
 
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class DepositDaoTest extends UnitilsJUnit4 {
 
-	DepositDao ad = new DepositDao();
+	DepositDao ad = new DepositDaoImpl();
 
 	@Test
 	@DataSet("/dataset/deposit/DepositDaoTest.get.xml")

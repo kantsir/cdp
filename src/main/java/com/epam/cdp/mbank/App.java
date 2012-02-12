@@ -9,7 +9,7 @@ public class App {
 
 		AdminActionImpl act = new AdminActionImpl();
         
-		System.out.println(act.getAllClients().size());
+		System.out.println(act.getAllClients());
 	
 	}
 }
