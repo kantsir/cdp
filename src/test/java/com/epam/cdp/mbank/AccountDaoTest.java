@@ -3,6 +3,7 @@ package com.epam.cdp.mbank;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.unitils.UnitilsJUnit4;
@@ -11,16 +12,27 @@ import org.unitils.database.annotations.Transactional;
 import org.unitils.database.util.TransactionMode;
 import org.unitils.dbunit.annotation.DataSet;
 import org.unitils.dbunit.annotation.ExpectedDataSet;
+import org.unitils.orm.jpa.JpaUnitils;
+import org.unitils.orm.jpa.annotation.JpaEntityManagerFactory;
 import org.unitils.reflectionassert.ReflectionAssert;
+import org.unitils.spring.annotation.SpringApplicationContext;
+import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.epam.cdp.mbank.core.db.dao.AccountDao;
 import com.epam.cdp.mbank.core.db.daoImpl.AccountDaoImpl;
 import com.epam.cdp.mbank.model.Account;
 
+@JpaEntityManagerFactory(persistenceUnit = "test", configFile = "META-INF/persistence-test.xml")
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class AccountDaoTest extends UnitilsJUnit4 {
 
-	AccountDao ad = new AccountDaoImpl();
+	AccountDao ad;
+
+	@Before
+	public void setUp() {
+		ad = new AccountDaoImpl();
+		JpaUnitils.injectEntityManagerInto(ad);
+	}
 
 	@Test
 	@DataSet("/dataset/account/AccountDaoTest.get.xml")

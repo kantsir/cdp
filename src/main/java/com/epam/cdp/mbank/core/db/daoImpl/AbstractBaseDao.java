@@ -18,10 +18,6 @@ public abstract class AbstractBaseDao<T, IDType> implements
 
 	protected abstract String getSelectAllQuery();
 
-	public AbstractBaseDao() {
-
-	}
-
 	protected TypedQuery<T> createNamedQuery(String name) {
 		return entityManager.createNamedQuery(name, getObjectClass());
 	}
