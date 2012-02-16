@@ -1,4 +1,4 @@
-package com.epam.cdp.mbank;
+package com.epam.cdp.mbank.core.db.dao;
 
 import java.util.Arrays;
 import java.util.Calendar;

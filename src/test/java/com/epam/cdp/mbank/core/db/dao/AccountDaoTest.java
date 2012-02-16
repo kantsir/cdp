@@ -1,7 +1,10 @@
-package com.epam.cdp.mbank;
+package com.epam.cdp.mbank.core.db.dao;
 
 import java.util.Arrays;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,17 +18,17 @@ import org.unitils.dbunit.annotation.ExpectedDataSet;
 import org.unitils.orm.jpa.JpaUnitils;
 import org.unitils.orm.jpa.annotation.JpaEntityManagerFactory;
 import org.unitils.reflectionassert.ReflectionAssert;
-import org.unitils.spring.annotation.SpringApplicationContext;
-import org.unitils.spring.annotation.SpringBeanByType;
 
 import com.epam.cdp.mbank.core.db.dao.AccountDao;
 import com.epam.cdp.mbank.core.db.daoImpl.AccountDaoImpl;
 import com.epam.cdp.mbank.model.Account;
 
-@JpaEntityManagerFactory(persistenceUnit = "test", configFile = "META-INF/persistence-test.xml")
+@JpaEntityManagerFactory(persistenceUnit = "test", configFile = "/META-INF/persistence-test.xml")
 @RunWith(UnitilsJUnit4TestClassRunner.class)
 public class AccountDaoTest extends UnitilsJUnit4 {
 
+	@PersistenceContext
+	EntityManager entityManager;
 	AccountDao ad;
 
 	@Before
