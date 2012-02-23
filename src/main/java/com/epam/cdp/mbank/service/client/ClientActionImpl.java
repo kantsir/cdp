@@ -2,6 +2,9 @@ package com.epam.cdp.mbank.service.client;
 
 import java.util.List;
 
+import javax.jws.WebService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,11 @@ import com.epam.cdp.mbank.model.Deposit;
 import com.epam.cdp.mbank.model.Property;
 
 @Service
+@WebService(serviceName = "ClientAction",
+portName="ClientActionPort",
+endpointInterface = "com.epam.cdp.mbank.service.client.ClientAction",
+targetNamespace = "http://cdp.epam.com/ws/definitions",
+wsdlLocation = "WEB-INF/wsdl/ClientAction.wsdl")
 public class ClientActionImpl implements ClientAction {
 
 	@Autowired

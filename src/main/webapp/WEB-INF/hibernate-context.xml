@@ -13,14 +13,15 @@
 
 	<context:property-placeholder location="/WEB-INF/spring.properties" />
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<!-- Declare a datasource that has pooling capabilities -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close" p:driverClass="${app.jdbc.driverClassName}"
-		p:jdbcUrl="${app.jdbc.url}" p:user="${app.jdbc.username}" p:password="${app.jdbc.password}"
-		p:acquireIncrement="5" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
-		p:maxStatements="50" p:minPoolSize="10" />
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${app.jdbc.driverClassName}" />
+		<property name="url" value="${app.jdbc.url}" />
+		<property name="username" value="${app.jdbc.username}" />
+		<property name="password" value="${app.jdbc.password}" />
+	</bean>
+		
 
 	<!-- Declare a JPA entityManagerFactory -->
 	<bean id="entityManagerFactory"
