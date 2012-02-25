@@ -23,7 +23,7 @@ import com.epam.cdp.mbank.model.Property;
 @WebService(serviceName = "ClientAction",
 portName="ClientActionPort",
 endpointInterface = "com.epam.cdp.mbank.service.client.ClientAction",
-targetNamespace = "http://cdp.epam.com/ws/definitions",
+targetNamespace = "http://cdp.epam.com/ws/client",
 wsdlLocation = "WEB-INF/wsdl/ClientAction.wsdl")
 public class ClientActionImpl implements ClientAction {
 

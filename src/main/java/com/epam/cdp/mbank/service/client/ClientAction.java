@@ -12,7 +12,7 @@ import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.Deposit;
 import com.epam.cdp.mbank.model.Property;
 
-@WebService(name="ClientActionPort",targetNamespace = "http://cdp.epam.com/ws/definitions")
+@WebService(name="ClientActionPort",targetNamespace = "http://cdp.epam.com/ws/client")
 public interface ClientAction{
 
 	@WebMethod

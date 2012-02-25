@@ -23,19 +23,17 @@
 	    <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>
 	
-	<servlet id="ws-clients-servlet">
-	    <servlet-name>ClientService</servlet-name>
+	<servlet id="jax-ws-servlet">
+	    <servlet-name>WebServiceServlet</servlet-name>
 	    <servlet-class>
 	        com.sun.xml.ws.transport.http.servlet.WSServlet
 	    </servlet-class>
 	    <load-on-startup>1</load-on-startup>
 	</servlet>
-
-		
-	<servlet-mapping id="ws-clients-servlet-mapping">
-	    <servlet-name>ClientService</servlet-name>
-	    <url-pattern>/app/clients</url-pattern>
+			
+	<servlet-mapping id="ws-admin-servlet-mapping">
+	    <servlet-name>WebServiceServlet</servlet-name>
+	    <url-pattern>*.ws</url-pattern>
 	</servlet-mapping>
-	
 	
 </web-app>

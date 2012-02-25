@@ -2,6 +2,8 @@ package com.epam.cdp.mbank.service.admin;
 
 import java.util.List;
 
+import javax.jws.WebService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,6 @@ import com.epam.cdp.mbank.core.db.dao.ActivityDao;
 import com.epam.cdp.mbank.core.db.dao.ClientDao;
 import com.epam.cdp.mbank.core.db.dao.DepositDao;
 import com.epam.cdp.mbank.core.db.dao.PropertyDao;
-import com.epam.cdp.mbank.core.db.daoImpl.ClientDaoImpl;
 import com.epam.cdp.mbank.model.Account;
 import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;
@@ -19,6 +20,11 @@ import com.epam.cdp.mbank.model.Property;
 import com.epam.cdp.mbank.model.enums.ClientActiveState;
 
 @Service
+@WebService(serviceName = "AdminAction",
+portName="AdminActionPort",
+endpointInterface = "com.epam.cdp.mbank.service.admin.AdminAction",
+targetNamespace = "http://cdp.epam.com/ws/admin",
+wsdlLocation = "WEB-INF/wsdl/AdminAction.wsdl")
 public class AdminActionImpl implements AdminAction {
 
 	@Autowired

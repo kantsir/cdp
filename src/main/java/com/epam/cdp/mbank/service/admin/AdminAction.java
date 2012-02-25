@@ -2,48 +2,71 @@ package com.epam.cdp.mbank.service.admin;
 
 import java.util.List;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+
 import com.epam.cdp.mbank.model.Account;
 import com.epam.cdp.mbank.model.Activity;
 import com.epam.cdp.mbank.model.Client;
 import com.epam.cdp.mbank.model.Deposit;
 import com.epam.cdp.mbank.model.Property;
 
+@WebService(name = "AdminActionPort", targetNamespace = "http://cdp.epam.com/ws/admin")
 public interface AdminAction {
 
-	public void addNewClient(Client client);
+	@WebMethod
+	public void addNewClient(@WebParam(name = "client") Client client);
 
-	public void updateClientDetails(Client client);
+	@WebMethod
+	public void updateClientDetails(@WebParam(name = "client") Client client);
 
-	public void removeClient(Long clientId);
+	@WebMethod
+	public void removeClient(@WebParam(name = "clientId") Long clientId);
 
-	public Client getClientById(Long clientId);
+	@WebMethod
+	public Client getClientById(@WebParam(name = "clientId") Long clientId);
 
-	public List<Client> getClientsByName(String clientName);
+	@WebMethod
+	public List<Client> getClientsByName(@WebParam(name = "clientName") String clientName);
 
-	public List<Client> getClientsByEmail(String clientEmail);
+	@WebMethod
+	public List<Client> getClientsByEmail(@WebParam(name = "clientEmail") String clientEmail);
 
-	public List<Client> getClientsByPhone(String clientPhone);
+	@WebMethod
+	public List<Client> getClientsByPhone(@WebParam(name = "clientPhone") String clientPhone);
 
-	public List<Client> getClientsByAdress(String clientAdress);
+	@WebMethod
+	public List<Client> getClientsByAdress(@WebParam(name = "clientAddress") String clientAddress);
 
+	@WebMethod
 	public List<Client> getAllClients();
 
-	public Account getClientAccount(Long clientId);
+	@WebMethod
+	public Account getClientAccount(@WebParam(name = "clientId") Long clientId);
 
+	@WebMethod
 	public List<Account> getAllAccounts();
 
-	public List<Deposit> getClientDeposites(Long clientId);
+	@WebMethod
+	public List<Deposit> getClientDeposites(@WebParam(name = "clientId") Long clientId);
 
+	@WebMethod
 	public List<Deposit> getAllDeposites();
 
-	public List<Activity> getClientActivities(Long clientId);
+	@WebMethod
+	public List<Activity> getClientActivities(@WebParam(name = "clientId") Long clientId);
 
+	@WebMethod
 	public List<Activity> getAllActivities();
-	
-	public void updateSystemPropety(Property property);
-	
-	public Property getSystemPropertyValueByKey(String key);
-	
+
+	@WebMethod
+	public void updateSystemPropety(@WebParam(name = "property") Property property);
+
+	@WebMethod
+	public Property getSystemPropertyValueByKey(@WebParam(name = "key") String key);
+
+	@WebMethod
 	public List<Property> getAllSystemProperty();
 
 }
