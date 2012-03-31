@@ -1,9 +1,17 @@
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-
-  <persistence-unit name="hibernatePersistenceUnit" transaction-type="RESOURCE_LOCAL">
-  		<properties>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	version="2.0">
+	<persistence-unit name="hibernatePersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="validate" />
 		</properties>
-  </persistence-unit>
-
+		
+			<class>com.epam.cdp.mbank.model.Account</class>
+			<class>com.epam.cdp.mbank.model.Activity</class>
+			<class>com.epam.cdp.mbank.model.Client</class>
+			<class>com.epam.cdp.mbank.model.Deposit</class>
+			<class>com.epam.cdp.mbank.model.Property</class>
+		
+ 	</persistence-unit>
 </persistence>

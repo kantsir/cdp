@@ -2,18 +2,16 @@ package com.epam.cdp.mbank.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.epam.cdp.mbank.service.admin.AdminAction;
-import com.epam.cdp.mbank.service.admin.AdminActionImpl;
+import com.epam.cdp.mbank.service.admin.AdminService;
 
 
 @Controller
 public class HomeController {
  
 	@Autowired
-	public AdminAction adm; 
+	public AdminService adminService; 
 	
     @RequestMapping(value = "/home.htm")
     public String home() {
@@ -25,7 +23,7 @@ public class HomeController {
     @RequestMapping(value = "/clients.htm")
     public String clients(){
     	System.out.println("clients");
-    	System.out.println(adm.getAllClients().size());
+    	System.out.println(adminService.getAllClients().size());
 		return "redirect:http://www.google.com.ua";
     }
 }

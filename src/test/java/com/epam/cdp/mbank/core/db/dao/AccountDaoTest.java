@@ -29,6 +29,7 @@ public class AccountDaoTest extends UnitilsJUnit4 {
 
 	@PersistenceContext
 	EntityManager entityManager;
+
 	AccountDao ad;
 
 	@Before
