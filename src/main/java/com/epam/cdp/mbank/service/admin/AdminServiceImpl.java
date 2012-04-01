@@ -149,4 +149,9 @@ public class AdminServiceImpl  implements AdminService {
 		this.propertyDao = propertyDao;
 	}
 
+	@Override
+	public int getInt() {
+		return 10;
+	}
+
 }

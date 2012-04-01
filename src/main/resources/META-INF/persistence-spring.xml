@@ -6,12 +6,10 @@
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="validate" />
 		</properties>
-		
-			<class>com.epam.cdp.mbank.model.Account</class>
-			<class>com.epam.cdp.mbank.model.Activity</class>
-			<class>com.epam.cdp.mbank.model.Client</class>
-			<class>com.epam.cdp.mbank.model.Deposit</class>
-			<class>com.epam.cdp.mbank.model.Property</class>
-		
+		<class>com.epam.cdp.mbank.model.Account</class>
+		<class>com.epam.cdp.mbank.model.Activity</class>
+		<class>com.epam.cdp.mbank.model.Client</class>
+		<class>com.epam.cdp.mbank.model.Deposit</class>
+		<class>com.epam.cdp.mbank.model.Property</class>		
  	</persistence-unit>
 </persistence>

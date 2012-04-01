@@ -5,7 +5,7 @@
 	<artifactId>mbank</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>WebServicesExample Maven Webapp</name>
+	<name>MBANK-CDP-PROJECT</name>
 	<url>http://maven.apache.org</url>
 
 	<repositories>

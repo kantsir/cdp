@@ -17,6 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+
 import com.epam.cdp.mbank.model.enums.ClientActiveState;
 import com.epam.cdp.mbank.model.enums.ClientType;
 
@@ -29,7 +34,6 @@ import com.epam.cdp.mbank.model.enums.ClientType;
 		@NamedQuery(name = "Clients.getByAddress", query = "SELECT c FROM Client c WHERE c.address = :address"),
 		@NamedQuery(name = "Clients.getByName", query = "SELECT c FROM Client c WHERE c.clientName = :clientName"),
 		@NamedQuery(name = "Clients.getByActiveState", query = "SELECT c FROM Client c WHERE c.clientActiveState = :clientActiveState")
-
 })
 public class Client implements Serializable {
 
@@ -67,12 +71,15 @@ public class Client implements Serializable {
 	private ClientActiveState clientActiveState;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "client")
+	@LazyToOne(LazyToOneOption.FALSE)
 	private Account account;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Deposit> deposites;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Activity> activities;
 	
 	public Client() {

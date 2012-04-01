@@ -45,5 +45,7 @@ public interface AdminService {
 	public Property getSystemPropertyValueByKey(String key);
 
 	public List<Property> getAllSystemProperty();
+	
+	public int getInt();
 
 }

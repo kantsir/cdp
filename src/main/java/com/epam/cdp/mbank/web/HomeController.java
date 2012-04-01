@@ -24,7 +24,20 @@ public class HomeController {
     public String clients(){
     	System.out.println("clients");
     	System.out.println(adminService.getAllClients().size());
-		return "redirect:http://www.google.com.ua";
+    	Double bal= adminService.getAllClients().get(4).getAccount().getBalance();
+    	System.out.println(adminService.getAllClients().get(4).getAccount().getBalance());
+		return "redirect:http://www.google.com.ua"+"/q="+bal.toString();
+    }
+    
+    @RequestMapping(value = "/act")
+    public String activity(){
+    	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    	System.out.println("!!!!!!!!!!activity!!!!!!!!");
+    	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    	
+    	System.out.println(adminService.getClientActivities(new Long(54)).get(0).getAmount());
+    	
+		return "redirect:http://www.google.com.ua"+"/activityamount="+adminService.getClientActivities(new Long(54)).get(0).getAmount();
     }
 }
 

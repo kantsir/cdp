@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="../xsd/mbank.xsd">
-	<properties prop_key="key1" prop_value="value1" />
-	<properties prop_key="key2" prop_value="value2" />
-	<properties prop_key="key3" prop_value="value3" />
-</dataset>
-
